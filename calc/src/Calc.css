@@ -1,0 +1,202 @@
+.calculator {
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  margin-block-start: 2em;
+  max-inline-size: 22rem;
+  overflow: hidden;
+  color: hsl(202, 11%, 29%);
+}
+
+.calculator__output {
+  background: hsl(255, 100%, 100%);
+  font-size: 4.2rem;
+  padding-block-start: 3rem;
+  padding-block-end: 0.5rem;
+  padding-inline-end: 1.25rem;
+  text-align: end;
+}
+@import  url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {box-sizing: border-box;}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+  margin: 0;
+  transition: background 0.2s linear;
+}
+
+body.dark {background-color: #292c35;} /* #9b59b6 */
+
+body.dark h1, body.dark .support a {color: #fff;}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.calculator__keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1px;
+  background: hsl(255, 100%, 100%);
+  padding: 0.5rem;
+}
+
+.calculator__key {
+  background: hsl(210, 25%, 95%);
+  border: none;
+  padding-block-start: 1rem;
+  padding-block-end: 1rem;
+  padding-inline-end: 1.25rem;
+  padding-inline-start: 1.25rem;
+  font-size: 1.5rem;
+  /* Playful Styles */
+  inline-size: 70px;
+  block-size: 70px;
+  margin: 0.25rem;
+  border-radius: 40px;
+}
+
+.calculator__key:active,
+.calculator__key:focus {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) inset;
+  outline: none;
+}
+
+.calculator__key--operator {
+  background: hsl(208, 25%, 86%);
+}
+
+.calculator__key--operator:active {
+  background: hsl(208, 24%, 80%);
+}
+
+.calculator__key--enter {
+  grid-column: 4 / 5;
+  grid-row: 2 / span 3;
+  background: hsl(357, 100%, 72%);
+  height: auto;
+}
+
+.theme-toggle {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: hsl(207, 19%, 61%);
+  color: hsl(255, 100%, 100%);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background-color: hsl(206, 14%, 41%);
+}
+
+.dark-mode {
+  color: hsl(255, 100%, 100%);
+}
+.dark-mode .checkbox-label {
+  background-color: #463d3d;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dark-mode .toggle_butt {
+background:  hsl(0, 0%, 0%);
+}
+
+.dark-mode .calculator__output {
+  background: hsl(0, 0%, 0%);
+}
+
+.dark-mode .calculator__keys {
+  background: hsl(0, 0%, 0%);
+}
+
+.dark-mode .calculator__key {
+  background: hsl(204.92deg 79.15% 15.91% / 72%);
+  color: hsl(255, 100%, 100%);
+}
+
+.dark-mode .calculator__key--operator {
+  background: hsl(229.85deg 100% 32.36%);
+}
+
+.dark-mode .calculator__key--operator:active {
+  background: hsl(208, 24%, 80%);
+}
+
+.dark-mode .calculator__key--enter {
+  background: hsl(357deg 100% 50% / 81%);
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+  .calculator {
+    max-inline-size: 30rem; /* Adjust the size for larger screens */
+  }
+
+  .calculator__output {
+    font-size: 5rem; /* Increase font size for larger screens */
+  }
+
+  .calculator__key {
+    inline-size: 80px; /* Increase key size for larger screens */
+    block-size: 80px;  /* Increase key size for larger screens */
+    font-size: 1.75rem; /* Increase font size for larger screens */
+  }
+
+  .calculator__key--enter {
+    grid-column: 4 / 5;
+    grid-row: 2 / span 4;
+    height: auto;
+  }
+
+}
